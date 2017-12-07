@@ -15,6 +15,30 @@ buildscript {
     }
 }
 
+// Define versions in a single place
+ext {
+    // SDK and tools
+    minSdkVersion = 14
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.2'
+
+    // App dependencies
+    supportLibraryVersion = '26.1.0'
+    constraintLayoutVersion = '1.0.2'
+    junitVersion = '4.12'
+    runnerVersion = '1.0.1'
+    espressoVersion = '3.0.1'
+
+    lifeCycleVersion = "1.0.0"
+    roomVersion = "1.0.0"
+    pagingVersion = "1.0.0-alpha3"
+
+    gsonVersion = "2.8.2"
+    retrofitVersion = "2.3.0"
+    glideVersion = "4.3.1"
+}
+
 allprojects {
     repositories {
         google()

@@ -20,9 +20,42 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //region Support Libraries
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    //endregion
+
+    //region Android Architecture Components
+    // Lifecycle
+    implementation "android.arch.lifecycle:common-java8:$rootProject.ext.lifeCycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.ext.lifeCycleVersion"
+
+    // LiveData and ViewModel
+    implementation "android.arch.lifecycle:extensions:$rootProject.ext.lifeCycleVersion"
+    testImplementation "android.arch.core:core-testing:$rootProject.ext.lifeCycleVersion"
+    implementation "android.arch.lifecycle:reactivestreams:$rootProject.ext.lifeCycleVersion"
+
+    // Room database
+    implementation "android.arch.persistence.room:runtime:$rootProject.ext.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.ext.roomVersion"
+    testImplementation "android.arch.persistence.room:testing:$rootProject.ext.roomVersion"
+
+    // Paging
+    implementation "android.arch.paging:runtime:$rootProject.ext.pagingVersion"
+    //endregion
+
+    //region HTTP libraries
+    // Retrofit
+    compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+
+    // Glide
+    compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.glideVersion"
+    //endregion
 }
