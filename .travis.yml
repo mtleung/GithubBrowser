@@ -17,30 +17,31 @@ android:
     - tools
     - platform-tools
     - build-tools-26.0.3
-    - android-15
+#    - android-15
     - android-16
-    - android-17
-    - android-18
-    - android-19
-    - android-21
-    - android-22
-    - android-24
-    - android-25
+#    - android-17
+#    - android-18
+#    - android-19
+#    - android-21
+#    - android-22
+#    - android-24
+#    - android-25
     - android-26
-    - sys-img-armeabi-v7a-android-22
 
 env:
   matrix:
-    - API=android-15 ABI=armeabi-v7a
+#    - API=android-15 ABI=armeabi-v7a
     - API=android-16 ABI=armeabi-v7a
-    - API=android-17 ABI=armeabi-v7a
-    - API=android-18 ABI=armeabi-v7a
-    - API=android-19 ABI=armeabi-v7a
-    - API=android-21 ABI=armeabi-v7a
-    - API=android-22 ABI=armeabi-v7a
-    - API=android-24 ABI=armeabi-v7a
-    - API=android-25 ABI=armeabi-v7a
-    - API=android-26 ABI=armeabi-v7a
+#    - API=android-17 ABI=armeabi-v7a
+#    - API=android-18 ABI=armeabi-v7a
+#    - API=android-19 ABI=armeabi-v7a
+#    - API=android-21 ABI=armeabi-v7a
+#    - API=android-22 ABI=armeabi-v7a
+#    - API=android-24 ABI=armeabi-v7a
+#    - API=android-24 ABI=arm-v8a-android
+#    - API=android-24 ABI=arm-v8a-google_apis
+#    - API=android-25 ABI=armeabi-v7a-google_apis
+#    - API=android-25 ABI=arm-v8a-google_apis
 
 # Emulator Management: Create, Start and Wait
 before_script:
@@ -52,7 +53,8 @@ before_script:
 
 script:
   - ./gradlew clean assemble
-#  - ./gradlew connectedCheck
+  - ./gradlew test
+  - ./gradlew connectedCheck -PdisablePreDex
 
 
 after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
