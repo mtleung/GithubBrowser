@@ -17,6 +17,12 @@ android:
     - tools
     - platform-tools
     - build-tools-26.0.3
+    - android-15
+    - android-16
+    - android-17
+    - android-18
+    - android-19
+    - android-21
     - android-22
     - android-24
     - android-25
@@ -33,7 +39,8 @@ env:
     - API=android-21 ABI=armeabi-v7a
     - API=android-22 ABI=armeabi-v7a
     - API=android-24 ABI=armeabi-v7a
-    - API=android-24 ABI=arm-v8a
+    - API=android-25 ABI=armeabi-v7a
+    - API=android-26 ABI=armeabi-v7a
 
 # Emulator Management: Create, Start and Wait
 before_script:
