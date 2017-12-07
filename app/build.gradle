@@ -26,17 +26,21 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
+    //region Test Libraries
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+    //endregion
+
     //region Support Libraries
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
-
     //endregion
 
     //region Android Architecture Components
-
     // Lifecycle
     implementation "android.arch.lifecycle:common-java8:$rootProject.ext.lifeCycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.ext.lifeCycleVersion"
@@ -53,11 +57,9 @@ dependencies {
 
     // Paging
     implementation "android.arch.paging:runtime:$rootProject.ext.pagingVersion"
-
     //endregion
 
     //region HTTP libraries
-
     // Retrofit
     implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
@@ -66,6 +68,5 @@ dependencies {
     // Glide
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.glideVersion"
-
     //endregion
 }
