@@ -16,10 +16,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '26.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //region Support Libraries
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
@@ -27,9 +32,11 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+
     //endregion
 
     //region Android Architecture Components
+
     // Lifecycle
     implementation "android.arch.lifecycle:common-java8:$rootProject.ext.lifeCycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.ext.lifeCycleVersion"
@@ -46,16 +53,19 @@ dependencies {
 
     // Paging
     implementation "android.arch.paging:runtime:$rootProject.ext.pagingVersion"
+
     //endregion
 
     //region HTTP libraries
+
     // Retrofit
-    compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
-    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
 
     // Glide
-    compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.glideVersion"
+
     //endregion
 }
