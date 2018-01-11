@@ -2,7 +2,7 @@ package com.mtleung.githubbrowser;
 
 import android.arch.lifecycle.ViewModel;
 
-import com.mtleung.githubbrowser.model.User;
+import com.mtleung.githubbrowser.model.user.User;
 
 /**
  * Created by marco.t.leung on 30/11/2017.

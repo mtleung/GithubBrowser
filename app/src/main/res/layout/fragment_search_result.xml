@@ -9,12 +9,15 @@
         <variable
             name="viewmodel"
             type="com.mtleung.githubbrowser.search.SearchViewModel" />
+        <variable
+            name="hasSearchResult"
+            type="boolean" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/search.container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
         <TextView
             android:id="@+id/search_no_result"
             android:layout_width="wrap_content"
@@ -24,16 +27,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:visibility="@{viewmodel.numberSearchResult != 0 ? View.GONE : View.VISIBLE}" />
+            app:visibleGone="@{! hasSearchResult}" />
+            <!--android:visibility="@{viewmodel.hasSearchResult ? View.GONE : View.VISIBLE}" -->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/search_results"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:visibleGone="@{hasSearchResult}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_user"
-            android:visibility="@{viewmodel.numberSearchResult != 0 ? View.VISIBLE : View.GONE}" />
+            tools:listitem="@layout/item_user" />
+            <!--android:visibility="@{viewmodel.hasSearchResult ? View.VISIBLE : View.GONE}" />-->
     </android.support.constraint.ConstraintLayout>
 </layout>

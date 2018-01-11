@@ -4,9 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable
-            name="callback"
-            type="com.mtleung.githubbrowser.search.SearchCallback" />
+        <import type="android.view.View" />
+        <variable name="hasSearchTerm" type="boolean" />
         <variable
             name="viewmodel"
             type="com.mtleung.githubbrowser.search.SearchViewModel" />
@@ -20,7 +19,7 @@
         android:focusableInTouchMode="true"
         tools:context=".search.SearchActivity">
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_container"
+            android:id="@+id/search_input_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -31,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <EditText
-                android:id="@+id/input_search"
+                android:id="@+id/search_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textNoSuggestions"
@@ -41,13 +40,23 @@
         </android.support.design.widget.TextInputLayout>
 
         <FrameLayout
-            android:id="@+id/search_frame"
+            android:id="@+id/search_history"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:visibleGone="@{! hasSearchTerm}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_container"/>
+            app:layout_constraintTop_toBottomOf="@id/search_input_container"/>
+        <FrameLayout
+            android:id="@+id/search_results"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:visibleGone="@{hasSearchTerm}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_input_container"/>
     </android.support.constraint.ConstraintLayout>
 </layout>
 

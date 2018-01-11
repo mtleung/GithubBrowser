@@ -6,26 +6,19 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.mtleung.githubbrowser.network.NetworkApi;
-
-import javax.inject.Inject;
-
-import dagger.android.AndroidInjection;
 
 public class UserDetailActivity extends AppCompatActivity {
     private final String TAG = UserDetailActivity.class.getSimpleName();
 
-    @Inject
     NetworkApi networkApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_detail);
 

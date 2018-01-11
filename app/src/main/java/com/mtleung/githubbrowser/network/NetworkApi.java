@@ -1,7 +1,5 @@
 package com.mtleung.githubbrowser.network;
 
-import dagger.Provides;
-
 /**
  * Created by marco.t.leung on 2/12/2017.
  */

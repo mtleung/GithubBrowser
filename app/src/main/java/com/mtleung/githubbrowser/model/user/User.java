@@ -1,4 +1,4 @@
-package com.mtleung.githubbrowser.model;
+package com.mtleung.githubbrowser.model.user;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey;
  * Created by marco.t.leung on 30/11/2017.
  */
 
-@Entity
+@Entity(tableName = "user")
 public class User {
     @PrimaryKey
     private long id;
