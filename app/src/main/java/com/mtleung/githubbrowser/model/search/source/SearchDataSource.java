@@ -16,6 +16,8 @@ public interface SearchDataSource {
         void onSearchResultLoaded(LiveData<List<SearchItem>> searchItemList);
         void onDataNotAvailable();
     }
+
+    void addSearchTerm(@NonNull String searchTerm);
     void getSearchResults(@NonNull String query, @NonNull LoadSearchResultCallback callback);
 
     void saveSearchItem(@NonNull String query, @NonNull SearchItem searchItem);

@@ -18,17 +18,21 @@ public class SearchLocalDataSource implements SearchDataSource {
 
     private AppExecutors mAppExecutors;
     private SearchDao mSearchDao;
+    private SearchTermDao mSearchTermDao;
 
     private SearchLocalDataSource(@NonNull AppExecutors appExecutors,
-                                  @NonNull SearchDao searchDao) {
+                                  @NonNull SearchDao searchDao,
+                                  @NonNull SearchTermDao searchTermDao) {
         mAppExecutors = appExecutors;
         mSearchDao = searchDao;
+        mSearchTermDao = searchTermDao;
     }
 
     public static SearchLocalDataSource getInstance(@NonNull AppExecutors appExecutors,
-                                                    @NonNull SearchDao searchDao) {
+                                                    @NonNull SearchDao searchDao,
+                                                    @NonNull SearchTermDao searchTermDao) {
         if (INSTANCE == null) {
-            INSTANCE = new SearchLocalDataSource(appExecutors, searchDao);
+            INSTANCE = new SearchLocalDataSource(appExecutors, searchDao, searchTermDao);
         }
         return INSTANCE;
     }

@@ -7,6 +7,7 @@ import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
 import com.mtleung.githubbrowser.model.search.SearchItem;
+import com.mtleung.githubbrowser.model.search.source.SearchRepository;
 import com.mtleung.githubbrowser.util.AbsentLiveData;
 
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ import java.util.List;
 public class SearchViewModel extends ViewModel {
     private final String TAG = SearchViewModel.class.getSimpleName();
 
+    private final SearchRepository mSearchRepository;
+
     public final MutableLiveData<String> searchTerm = new MutableLiveData<>();
 
     public final LiveData<Boolean> hasSearchTerm;
@@ -28,9 +31,10 @@ public class SearchViewModel extends ViewModel {
 //    public final MutableLiveData<List<String>> searchHistory = new MutableLiveData<>();
 
 
-    public SearchViewModel() {
+    public SearchViewModel(SearchRepository searchRepository) {
         Log.d(TAG, "Creating SearchViewModel");
 //        searchHandler = new SearchHandler(userRepository);
+        mSearchRepository = searchRepository;
 
         hasSearchTerm = Transformations.switchMap(searchTerm, search -> {
             Log.d(TAG, "searchTerm updated, updating hasSearchTerm");
@@ -108,6 +112,9 @@ public class SearchViewModel extends ViewModel {
 //        Log.d(TAG, String.format("Adding searchHistory: %s", input));
 //        searchHistory.getValue().add(input);
         Log.d(TAG, String.format("Setting searchTerm: %s", input));
+
+        mSearchRepository.
+
         searchTerm.setValue(input);
     }
 
